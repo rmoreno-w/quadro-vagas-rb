@@ -18,7 +18,10 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
+  username: <%= ENV.fetch("POSTGRES_USERNAME") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+  host: <%= ENV.fetch("POSTGRES_DB_HOST") %>
+  port: <%= ENV.fetch("POSTGRES_PORT") %>
 
 development:
   <<: *default
@@ -82,8 +85,6 @@ production:
   primary: &primary_production
     <<: *default
     database: quadro_vagas_rb_production
-    username: quadro_vagas_rb
-    password: <%= ENV["QUADRO_VAGAS_RB_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: quadro_vagas_rb_production_cache
