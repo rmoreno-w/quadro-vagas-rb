@@ -1,0 +1,13 @@
+<main data-controller="hello">
+  <h1 class="text-3xl text-white my-4">Quadro de Vagas</h1>
+  <ul data-hello-target="ul" class="divide-y divide-gray-500 text-white">
+    <% @job_ads.each do |job_ad| %>
+      <li class="bg-[#1b1826] p-4 flex flex-col">
+        <span>Titulo: <%= job_ad.title%></span>
+        <span>Descrição: <%= job_ad.description%></span>
+      </li>
+    <% end %>
+  </ul>
+
+  <button data-action="click->hello#addListItem" class="bg-red-600 text-white px-4 py-2 hover:cursor-pointer rounded-lg my-4">Adicionar Vaga</button>
+</main>

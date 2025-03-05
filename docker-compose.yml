@@ -1,9 +1,9 @@
 services:
   rails_server:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && rails db:migrate && bundle exec rails s -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && rails db:create db:migrate && bundle exec rails s -b '0.0.0.0'"
     image: ruby_nos_trilhos:v1.0
-    container_name: ruby_server
+    container_name: rails_server
     volumes:
       - '.:/usr/ruby_nos_trilhos'
     ports:
@@ -11,9 +11,9 @@ services:
     depends_on:
       - postgres_db
     environment:
-      - DB_USERNAME=${POSTGRES_USERNAME}
-      - DB_PASSWORD=${POSTGRES_PASSWORD}
-      - DB_HOST=postgres_db
+      - POSTGRES_USERNAME=${POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB_HOST=postgres_db
 
   postgres_db:
     image: postgres:latest

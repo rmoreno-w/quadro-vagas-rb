@@ -9,6 +9,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 # return unless Rails.env.test?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'capybara/rspec'
+require 'capybara/cuprite'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -35,6 +37,18 @@ end
 RSpec.configure do |config|
   config.before(type: :system) do
     driven_by(:rack_test)
+  end
+
+  config.infer_spec_type_from_file_location!
+
+  config.before(:each, type: :system, js: true) do
+    driven_by(:cuprite, screen_size: [ 1200, 800 ], options: {
+      js_errors: false,
+      headless: %w[0],
+      process_timeout: 15,
+      timeout: 10,
+      browser_options: { "no-sandbox" => nil }
+    })
   end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

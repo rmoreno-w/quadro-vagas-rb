@@ -9,7 +9,7 @@ RUN apt-get update -qq && apt-get install -y \
 
 WORKDIR /usr/ruby_nos_trilhos
 
-COPY . .
+COPY Gemfile Gemfile.lock ./
 
 RUN bundle install
 
