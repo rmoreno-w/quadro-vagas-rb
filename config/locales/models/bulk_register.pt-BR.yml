@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      bulk_register:
+        one: Registro em Massa
+        other: Registros em Massa
+    attributes:
+      company_profile:
+        total_lines: Total de Linhas no Arquivo
+        lines_read: Linhas Lidas
+        success_count: Linhas Lidas com Sucesso
+        error_count: Linhas com Erro
+  errors:
+    messages:
+      no_admin_permissions: 'Você não tem acesso a essa página.'

@@ -1,0 +1,5 @@
+pt-BR:
+  bulk_registers:
+    index:
+      no_files_yet: Você ainda não fez o upload de nenhum arquivo para registro em massa.
+      new_file_upload: Novo Upload de Arquivo

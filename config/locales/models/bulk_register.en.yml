@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      bulk_register:
+        one: Bulk Register
+        other: Bulk Registers
+    attributes:
+      company_profile:
+        total_lines: Total of Lines in the file
+        lines_read: Lines Read
+        success_count: Lines Read Successfully
+        error_count: Lines with Error
+  errors:
+    messages:
+      no_admin_permissions: You don't have access to this page.

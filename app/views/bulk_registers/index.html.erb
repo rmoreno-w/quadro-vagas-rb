@@ -1,0 +1,8 @@
+<h1><%= BulkRegister.model_name.human(count: 2) %></h1>
+
+<%= link_to t('.new_file_upload'), new_bulk_register_path(Current.user) %>
+<% if Current.user.bulk_registers.exists? %>
+  <p>Arquivos</p>
+<% else %>
+  <p><%= t('.no_files_yet')%></p>
+<% end %>
