@@ -5,14 +5,14 @@ class BulkRegistersController < ApplicationController
   end
 
   def new
-    @bulk_register = Current.user.bulk_registers.build
+    @bulk_register = BulkRegister.new
   end
 
   def create
     @bulk_register = Current.user.bulk_registers.build(bulk_register_params)
-    @bulk_register.pending!
 
     if @bulk_register.save
+      @bulk_register.pending!
       BulkRegistersFileReadingJob.perform_later(@bulk_register)
       redirect_to bulk_registers_path, notice: t(".success")
     else

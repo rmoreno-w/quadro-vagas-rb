@@ -18,3 +18,4 @@ pt-BR:
   errors:
     messages:
       no_admin_permissions: You don't have access to this page.
+      invalid_file_format: 'must be a file in one of the following formats: TXT or CSV.'

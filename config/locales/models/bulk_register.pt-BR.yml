@@ -18,3 +18,4 @@ pt-BR:
   errors:
     messages:
       no_admin_permissions: 'Você não tem acesso a essa página.'
+      invalid_file_format: 'deve ser uma arquivo em um dos seguintes formatos: TXT ou CSV.'
