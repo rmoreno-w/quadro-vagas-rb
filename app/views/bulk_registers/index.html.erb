@@ -1,8 +1,21 @@
-<h1><%= BulkRegister.model_name.human(count: 2) %></h1>
+<section class="flex flex-col gap-10 w-full">
+  <header class="flex justify-between items-center pb-2 border-b border-emerald-600">
+    <h1><%= BulkRegister.model_name.human(count: 2) %></h1>
 
-<%= link_to t('.new_file_upload'), new_bulk_register_path(Current.user) %>
-<% if Current.user.bulk_registers.exists? %>
-  <p>Arquivos</p>
-<% else %>
-  <p><%= t('.no_files_yet')%></p>
-<% end %>
+    <%= link_to t('.new_file_upload'), new_bulk_register_path(Current.user), class: 'hover:cursor-pointer flex w-fit items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-emerald-500 hover:bg-emerald-600 focus:bg-emerald-700' %>
+  </header>
+
+  <% if @bulk_registers.exists? %>
+    <ul class="flex flex-col gap-4">
+      <% @bulk_registers.each do |register| %>
+        <li class="border-l-2 border-emerald-600 pl-4 flex flex-col gap-2">
+          <p><span class="font-bold text-emerald-600">Nome do Arquivo:</span> <%= register.user_uploaded_file.filename.to_s %> </p>
+          <p><span class="font-bold text-emerald-600">Data do Upload:</span> <%= l(register.created_at, format: :short) %></p>
+          <p><span class="font-bold text-emerald-600">Status:</span> <%= BulkRegister.human_enum_name(:status, register.status) %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p><%= t('.no_files_yet')%></p>
+  <% end %>
+</section>

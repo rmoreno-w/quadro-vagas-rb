@@ -3,3 +3,8 @@ pt-BR:
     index:
       no_files_yet: Você ainda não fez o upload de nenhum arquivo para registro em massa.
       new_file_upload: Novo Upload de Arquivo
+    new:
+      new_file_upload: Novo Upload de Arquivo
+    create:
+      success: Upload de Arquivo de Registros feito com sucesso!
+      failure: Erro ao fazer upload do Arquivo de Registros.

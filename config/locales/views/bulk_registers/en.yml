@@ -3,3 +3,8 @@ en:
     index:
       no_files_yet: You have not uploaded any file for bulk registering yet.
       new_file_upload: Upload New File
+    new:
+      new_file_upload: Upload New File
+    create:
+      success: File with Registers uploaded successfully!
+      failure: Error uploading Registers File.

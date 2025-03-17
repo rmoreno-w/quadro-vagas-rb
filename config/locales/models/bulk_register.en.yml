@@ -5,11 +5,16 @@ pt-BR:
         one: Bulk Register
         other: Bulk Registers
     attributes:
-      company_profile:
+      bulk_register:
         total_lines: Total of Lines in the file
         lines_read: Lines Read
         success_count: Lines Read Successfully
         error_count: Lines with Error
+        user_uploaded_file: File with Registers
+        statuses:
+          pending: Pending
+          processing: Processing
+          finished: Finished
   errors:
     messages:
       no_admin_permissions: You don't have access to this page.
