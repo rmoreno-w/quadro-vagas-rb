@@ -15,11 +15,7 @@ class BulkRegistersFileReadingJob < ApplicationJob
 
       file_content.each_line do |line|
         total_lines += 1
-        begin
-          AutomaticRecordCreationJob.perform_later(bulk_register, line, total_lines)
-        rescue StandardError => e
-          error_log.puts(t("errors.messages.error_processing_line", line_number: total_lines, error_message: e.message))
-        end
+        AutomaticRecordCreationJob.perform_later(bulk_register, line, total_lines)
       end
     end
 
@@ -28,16 +24,5 @@ class BulkRegistersFileReadingJob < ApplicationJob
     bulk_register.save!
     error_log.close
     error_log.unlink
-  end
-
-  def on_failure(e)
-    error_log.puts(t("errors.messages.error_processing_file", error_message: e.message))
-    bulk_register.error_log.attach(io: error_log, filename: "error_log.txt")
-    bulk_register.status = :failed
-    puts bulk_register.inspect
-    bulk_register.save!
-    error_log.close
-    error_log.unlink
-    super
   end
 end

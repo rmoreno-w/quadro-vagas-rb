@@ -1,5 +1,14 @@
 require 'rails_helper'
 
+RSpec.configure do |config|
+  # Reset sequences on table IDS to avoid wrong ids in postgres
+  config.before(:each) do
+    ActiveRecord::Base.connection.tables.each do |t|
+      ActiveRecord::Base.connection.reset_pk_sequence!(t)
+    end
+  end
+end
+
 RSpec.describe AutomaticRecordCreationJob, type: :job do
   it 'should proccess lines with success' do
     bulk_register = create(:bulk_register)
@@ -36,7 +45,6 @@ RSpec.describe AutomaticRecordCreationJob, type: :job do
 
     bulk_register.reload
     error_log_line_count = bulk_register.error_log.download.each_line.count
-    puts bulk_register.error_log.download.force_encoding("UTF-8")
 
     expect(bulk_register.status).to eq "finished"
     expect(bulk_register.lines_read).to eq 10
