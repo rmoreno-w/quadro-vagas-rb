@@ -4,6 +4,7 @@ RSpec.describe JobPosting, type: :model do
   context "#Valid?" do
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:salary) }
+    it { should validate_numericality_of(:salary) }
     it { should validate_presence_of(:salary_currency) }
     it { should validate_presence_of(:salary_period) }
     it { should validate_presence_of(:work_arrangement) }

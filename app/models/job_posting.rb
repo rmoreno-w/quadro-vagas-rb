@@ -22,4 +22,5 @@ class JobPosting < ApplicationRecord
 
   validates :title, :salary, :salary_currency, :salary_period, :company_profile, :work_arrangement, :description, presence: true
   validates :job_location, presence: true, if: -> { in_person? || hybrid? }
+  validates :salary, numericality: { greater_than: 0 }
 end

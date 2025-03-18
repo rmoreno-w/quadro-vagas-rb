@@ -41,6 +41,13 @@ RSpec.configure do |config|
     driven_by(:rack_test)
   end
 
+  # Reset sequences on table IDS to avoid wrong ids in postgres
+  config.before(:each) do
+    ActiveRecord::Base.connection.tables.each do |t|
+      ActiveRecord::Base.connection.reset_pk_sequence!(t)
+    end
+  end
+
   config.before(:each, type: :system, js: true) do
     driven_by(:cuprite, screen_size: [ 1200, 800 ], options: {
                         js_errors: false,
@@ -58,6 +65,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include FactoryBot::Syntax::Methods
+
+  config.include ActiveJob::TestHelper, type: :job
 end
 
 Shoulda::Matchers.configure do |config|

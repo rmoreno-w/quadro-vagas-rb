@@ -1,1 +1,5 @@
-U,João,Campus,joao@email.com,password123
+U,erika@email.com,Erika,Campus
+U,otavio@email.com,Otavio,Campus
+U,institucional@campus.com,Institucional,Campus
+E,CampusCode,https://campuscode.com.br,campus@code.com.br,2
+V,Dev React,Desenvolvimento com Javascript e Framework React,2500,brl,monthly,remote,1,,1,1

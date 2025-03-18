@@ -1,0 +1,10 @@
+U,joao@email.com,João,Campus
+A,joao@email.com,João,Campus
+U,joao@email.com,João
+E,CampusCode,https://campuscode.com.br,campus@code.com.br
+E,CampusCode,https://campuscode.com.br,campus@code.com.br,1
+E,CampusCode,https://campuscode.com.br,campus@code.com.br,13
+E,CampusCode,https://campuscode.com.br,campus@code,1
+V,Dev React,Desenvolvimento com Javascript e Framework React,2500,brl,monthly,remote,1,,1
+V,Dev React,Desenvolvimento com Javascript e Framework React,2500,brl,monthly,remote,1,,1,13
+V,Dev React,Desenvolvimento com Javascript e Framework React,dois mil e quinhentos,brl,monthly,remote,1,,1,1
