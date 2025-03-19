@@ -8,3 +8,5 @@ en:
     create:
       success: File with Registers uploaded successfully!
       failure: Error uploading Registers File.
+    show:
+      download_log: Download Log Error

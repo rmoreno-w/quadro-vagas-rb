@@ -15,6 +15,7 @@ pt-BR:
           pending: Pending
           processing: Processing
           finished: Finished
+          failed: Falha
   errors:
     messages:
       no_admin_permissions: You don't have access to this page.

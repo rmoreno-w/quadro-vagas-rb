@@ -1,0 +1,7 @@
+<%= link_to bulk_register_path(bulk_register) do %>
+  <li class="border-l-2 border-emerald-600 pl-4 flex flex-col gap-2">
+    <p><span class="font-bold text-emerald-600">Nome do Arquivo:</span> <%= bulk_register.user_uploaded_file.filename.to_s %> </p>
+    <p><span class="font-bold text-emerald-600">Data do Upload:</span> <%= l(bulk_register.created_at, format: :short) %></p>
+    <p><span class="font-bold text-emerald-600">Status:</span> <%= BulkRegister.human_enum_name(:status, bulk_register.status) %></p>
+  </li>
+<% end %>

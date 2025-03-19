@@ -8,7 +8,8 @@ class BulkRegistersFileReadingJob < ApplicationJob
     bulk_register.lines_read = 0
     bulk_register.success_count = 0
     total_lines = 0
-    error_log = bulk_register.error_log.attached? ? bulk_register.error_log.download : Tempfile.new([ "error_log", ".txt" ])
+
+    error_log = Tempfile.new([ "error_log", ".txt" ])
 
     user_uploaded_file.open do |f|
       file_content = f.read.force_encoding("UTF-8")

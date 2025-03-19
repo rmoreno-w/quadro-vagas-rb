@@ -7,13 +7,7 @@
 
   <% if @bulk_registers.exists? %>
     <ul class="flex flex-col gap-4">
-      <% @bulk_registers.each do |register| %>
-        <li class="border-l-2 border-emerald-600 pl-4 flex flex-col gap-2">
-          <p><span class="font-bold text-emerald-600">Nome do Arquivo:</span> <%= register.user_uploaded_file.filename.to_s %> </p>
-          <p><span class="font-bold text-emerald-600">Data do Upload:</span> <%= l(register.created_at, format: :short) %></p>
-          <p><span class="font-bold text-emerald-600">Status:</span> <%= BulkRegister.human_enum_name(:status, register.status) %></p>
-        </li>
-      <% end %>
+      <%= render @bulk_registers %>
     </ul>
   <% else %>
     <p><%= t('.no_files_yet')%></p>

@@ -8,3 +8,5 @@ pt-BR:
     create:
       success: Upload de Arquivo de Registros feito com sucesso!
       failure: Erro ao fazer upload do Arquivo de Registros.
+    show:
+      download_log: Download do Arquivo com Erros

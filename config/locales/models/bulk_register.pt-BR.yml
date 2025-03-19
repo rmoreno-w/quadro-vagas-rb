@@ -15,6 +15,7 @@ pt-BR:
           pending: Pendente
           processing: Processando
           finished: Finalizado
+          failed: Falha
   errors:
     messages:
       no_admin_permissions: 'Você não tem acesso a essa página.'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_17_003347) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_19_041911) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pg_trgm"
@@ -54,9 +54,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_17_003347) do
   end
 
   create_table "bulk_registers", force: :cascade do |t|
-    t.integer "total_lines"
-    t.integer "lines_read"
-    t.integer "success_count"
+    t.integer "total_lines", default: 0
+    t.integer "lines_read", default: 0
+    t.integer "success_count", default: 0
     t.integer "status"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

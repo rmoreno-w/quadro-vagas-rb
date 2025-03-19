@@ -1,0 +1,47 @@
+<article id=<%= dom_id(bulk_register) %> class="flex flex-col gap-10 pb-10">
+  <h1>Processamento de registros para o arquivo <span class="italic">"<%= bulk_register.user_uploaded_file.filename.to_s %>"</span></h1>
+
+  <div class="flex flex-col gap-4 w-full">
+    <p class="font-bold text-xl text-emerald-600">Progresso</p>
+    <div class="w-full overflow-hidden bg-gray-200 rounded-2xl"> 
+      <div class="bg-emerald-600 w-[<%= bulk_register.progress_percentage.to_i %>%]">
+        <p class="text-center text-white"><%= number_with_precision(bulk_register.progress_percentage, precision: 2) %> %</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="border-l-2 border-emerald-600 p-4 flex flex-col gap-4">
+    <p class="font-light">
+      <span class="font-bold text-emerald-600">Status:</span>
+      <%= BulkRegister.human_enum_name(:status, bulk_register.status) %>
+    </p>
+    <p class="font-light">
+      <span class="font-bold text-emerald-600">Número de linhas no Arquivo:</span>
+      <%= bulk_register.total_lines %>
+    </p>
+    <p class="font-light">
+      <span class="font-bold text-emerald-600">Número de linhas processadas:</span>
+      <%= bulk_register.lines_read %>
+    </p>
+    <p class="font-light">
+      <span class="font-bold text-emerald-600">Número de linhas processadas com Sucesso:</span>
+      <%= bulk_register.success_count %>
+    </p>
+    <p class="font-light">
+      <span class="font-bold text-emerald-600">Número de linhas processadas com Erro:</span>
+      <%= bulk_register.error_count %>
+    </p>
+  </section>
+
+  <% if bulk_register.error_log.present? %>
+    <section class="flex flex-col gap-4">
+      <header class="flex justify-between items-center">
+        <h2 class="font-bold text-xl text-pink-600">Log de Erros</h2>
+        <%= link_to t('.download_log'), rails_blob_path(bulk_register.error_log, disposition: "attachment"), class: 'p-2 bg-pink-600 text-white rounded-lg'%>
+      </header>
+      <% bulk_register.error_log.download.force_encoding("UTF-8").each_line do |line| %>
+        <p class="border-l-2 pl-4 border-pink-600"><%= line %></p>
+      <% end %>
+    </section>
+  <% end %>
+</article>

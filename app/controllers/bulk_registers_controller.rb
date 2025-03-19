@@ -10,15 +10,22 @@ class BulkRegistersController < ApplicationController
 
   def create
     @bulk_register = Current.user.bulk_registers.build(bulk_register_params)
+    @bulk_register.total_lines = 0
+    @bulk_register.success_count = 0
+    @bulk_register.lines_read = 0
 
     if @bulk_register.save
       @bulk_register.pending!
       BulkRegistersFileReadingJob.perform_later(@bulk_register)
-      redirect_to bulk_registers_path, notice: t(".success")
+      redirect_to bulk_register_path(@bulk_register), notice: t(".success")
     else
       flash.now[:alert] = t(".failure")
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @bulk_register = BulkRegister.find(params[:id])
   end
 
   private

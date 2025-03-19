@@ -12,6 +12,19 @@ services:
       - DB_HOST=database
       - DB_PASSWORD=postgres
       - DB_USERNAME=postgres
+  worker:
+    build: .
+    stdin_open: true
+    tty: true
+    command: bundle exec rake solid_queue:start
+    depends_on:
+      - database
+    volumes:
+      - .:/app
+    environment:
+      - DB_HOST=database
+      - DB_PASSWORD=postgres
+      - DB_USERNAME=postgres
   database:
     image: postgres:17.4
     volumes:
