@@ -41,13 +41,13 @@ RSpec.describe AutomaticRecordCreationJob, type: :job do
 
     expect {
       perform_enqueued_jobs
-    }.to have_performed_job(AutomaticRecordCreationJob).exactly(10).times
+    }.to have_performed_job(AutomaticRecordCreationJob).exactly(11).times
 
     bulk_register.reload
     error_log_line_count = bulk_register.error_log.download.each_line.count
 
     expect(bulk_register.status).to eq "finished"
-    expect(bulk_register.lines_read).to eq 10
+    expect(bulk_register.lines_read).to eq 11
     expect(bulk_register.success_count).to eq 1
     expect(bulk_register.error_count).to eq error_log_line_count
   end

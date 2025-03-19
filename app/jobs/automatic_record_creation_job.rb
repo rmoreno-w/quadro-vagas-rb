@@ -79,8 +79,11 @@ class AutomaticRecordCreationJob < ApplicationJob
         end
       end
 
-    elsif [ "V", "E", "U" ].exclude? register_type
+    elsif ([ "V", "E", "U" ].exclude? register_type) && register_type.length == 1
       error_log += "#{I18n.t("errors.messages.error_processing_line", line_number: line_index, error_message: I18n.t("errors.messages.wrong_operation"))}\n"
+
+    else
+      error_log += "#{I18n.t("errors.messages.error_processing_line", line_number: line_index, error_message: I18n.t("errors.messages.unprocessable_line"))}\n"
     end
 
     updated_log_file_content = StringIO.new(error_log)

@@ -1,5 +1,6 @@
 U,joao@email.com,João,Campus
 A,joao@email.com,João,Campus
+joao@email.com,João,Campus
 U,joao@email.com,João
 E,CampusCode,https://campuscode.com.br,campus@code.com.br
 E,CampusCode,https://campuscode.com.br,campus@code.com.br,1

@@ -22,6 +22,7 @@ pt-BR:
       error_processing_line: 'Error processing line %{line_number}: %{error_message}'
       error_processing_file: 'Error processing file: %{error_message}'
       wrong_operation: 'Invalid register code. Valid codes: U, E, V.'
+      unprocessable_line: 'Invalid line format'
       wrong_number_of_parameters: 'Wrong number of parameters for a register of type %{type} on line %{line}. Number of expected parameters: %{parameters}'
       error_processing_invalid_user: 'Error processing line %{line_number}: Could not find user with id %{user_id}'
       error_processing_invalid_company_profile: 'Error processing line %{line_number}: Could not find company profile with id %{company_profile_id}'

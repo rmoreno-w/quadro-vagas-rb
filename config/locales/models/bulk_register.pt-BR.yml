@@ -22,6 +22,7 @@ pt-BR:
       error_processing_line: 'Erro ao processar linha %{line_number}: %{error_message}'
       error_processing_file: 'Erro ao processar arquivo: %{error_message}'
       wrong_operation: 'Código de registro inválido. Códigos válidos: U, E, V.'
+      unprocessable_line: 'Formato inválido da linha'
       wrong_number_of_parameters: 'Número errado de parâmetros para o registro de tipo %{type} na linha %{line}. Número de parâmetros esperados: %{parameters}'
       error_processing_invalid_user: 'Erro ao processar linha %{line_number}: Não foi possível achar um usuário com id %{user_id}'
       error_processing_invalid_company_profile: 'Erro ao processar linha %{line_number}: Não foi possível achar um perfil de empresa com id %{company_profile_id}'
