@@ -7,3 +7,5 @@ pt-BR:
       company_profile: Perfil da Empresa
       new_job_post: Anunciar vaga
       bulk_register: Registros em Massa
+      placeholder_search: 'Pesquise aqui...'
+      experience_levels: 'Níveis de Experiência'
